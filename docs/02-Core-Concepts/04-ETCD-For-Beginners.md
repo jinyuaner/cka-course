@@ -1,4 +1,12 @@
 # ETCD for Beginners
+key-value
+  tabular/relational db --> row and column
+  key-value store --> each individual is a document or file
+
+
+
+******************
+
   - Take me to the [Video Tutorial](https://kodekloud.com/topic/etcd-for-beginners/)
 
   In this section, we will take a quick look at introduction to ETCD for beginners.

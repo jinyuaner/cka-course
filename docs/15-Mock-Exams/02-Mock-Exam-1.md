@@ -1,5 +1,50 @@
 # Mock Exam 1
+go docs search --> kubectl cheat sheet --> autocomplete configuration
+kubectl get --> check 
 
+1. deploy pod
+k run --help
+k run podname --image=imagename --labels="labelname"
+k run podname --image=imagename -n namespacename
+k get pods
+k get pods -o wide
+k get pods -n namespacename  (get pods under that namespace)
+k descirbe pod podname
+
+> Q: create a static pod named static-busybox on the controlplane node that uses the busybox image and the command sleep 1000
+  k run podname --image=imagename --dry-run=client -o yaml --command -- sleep 1000
+  (--command -- 这之后的都是command)
+  (--dry-run=client -o yaml    for static pod)
+  k run static-busybox --image=busybox --dry-run=client -o yaml --command -- sleep 1000 > static-busybox.yaml  (put all these info in this yaml file)
+  cat static-busybox.yaml    (check the file)
+  mv static-busybox.yaml /etc/kubernetes/manifests
+
+2. create namespace
+k create namespace namespacename
+k get ns
+
+3. nodes
+k get nodes
+k get nodes -o json  (get node in json format)
+k get nodes -o json > redirctpath
+cat redirctpath      (to verify)
+
+4. create service
+k get svc
+k expose --help
+k expose pod podname --port portnum --name servicename
+k descibe svc servicename
+
+5. create deployment
+k create deployment deploymentname --image imagename --replicas=2
+k get deploy
+k describe deploy deploymentname
+
+6. debug pods/apps
+
+
+
+**********
   Test My Knowledge, Take me to [Mock Exam 1](https://kodekloud.com/topic/mock-exam-1-3/)
 
   #### Solution to the Mock Exam 1

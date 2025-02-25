@@ -1,7 +1,14 @@
 # Docker vs. ContainerD
 
-In this section we will look at the differences between Docker and ContainerD
+docker (cli/api/build/volumes/auth/security)--> dockershim -- > k8s
 
+containerd (*nerdctl* cli) --> CRI --> k8s
+
+other container runtime --> obey OCI-open container initiative(imagespec+runtimespec) --> call CRI container runtime interface --> (*crictl* cli)deploy to k8s
+
+k8s - container orchistrator, host app in form of containers
+
+****************************
 
 So you’re going to come across Docker and `containerd` many times. Going forward, when you read older blogs or documentation pages , you’ll see Docker mentioned along with Kubernetes and when you read newer blogs you’ll see `containerd` and you’ll wonder what the difference is between the two. And there are a few CLI tools like `ctr`, `crictl` or `nerdctl` and you’ll wonder what are these CLI tools and which one should you be using, so that’s what I’m going to explain.
 
