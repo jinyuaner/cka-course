@@ -6,11 +6,17 @@ kubectl get --> check
 k run --help
 k run podname --image=imagename --labels="labelname"
 k run podname --image=imagename -n namespacename
-k get pods
+k get pods  (get pods in the default namespace)
 k get pods -o wide
 k get pods -n namespacename  (get pods under that namespace)
+k get pods --namespace=kube-system
+k get pods --all-namespaces
 k descirbe pod podname
+k create -f pod-definition.yml --namespace=dev (or put namespace defi in yml file)
 kubectl edit pods redis    --> i to edit, and esc+:wq to save
+kubectl delete pod pod1 pod2 pod3
+删除所有带有 app=my-app 标签的 Pods --> kubectl delete pods -l app=my-app
+
 
 > Q: create a static pod named static-busybox on the controlplane node that uses the busybox image and the command sleep 1000
   k run podname --image=imagename --dry-run=client -o yaml --command -- sleep 1000
@@ -23,6 +29,7 @@ kubectl edit pods redis    --> i to edit, and esc+:wq to save
 2. create namespace
 k create namespace namespacename
 k get ns
+kubectl config set-context $(kubectl config current-context) --namespace=dev   (swap namspace)
 
 3. nodes
 k get nodes

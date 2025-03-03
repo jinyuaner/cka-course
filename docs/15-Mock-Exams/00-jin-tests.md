@@ -7,6 +7,8 @@ vi redis.yaml
 kubectl apply -f redis.yaml
 
 # ReplicaSets
+Q11/12 改manifest file  --》understand this structure ![rs](../../images/rs.PNG)
+
 # Deployments
 
 - generate pod manifest yaml file (-o yaml), don't create it (--dry-run)

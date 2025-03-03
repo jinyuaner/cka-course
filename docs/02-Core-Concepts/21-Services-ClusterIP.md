@@ -22,8 +22,8 @@ metadata:
 spec:
  types: ClusterIP
  ports:
- - targetPort: 80
-   port: 80
+ - targetPort: 80  -->  backend port
+   port: 80  --> service expose
  selector:
    app: myapp
    type: back-end

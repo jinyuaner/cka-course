@@ -74,8 +74,20 @@ kubectl get all --> to see all deployments
 
 # Services
 connection between user and pod --> between pods - connect to external data source
-NodePort Service
-    listen to port on a node --> forward request to pod running the app through port
-    ![srvnp](../../images/srvnp.PNG)
-ClusterIP
-LoadBalancer
+*NodePort Service*
+  listen to port on a node --> forward request to pod running the app through port
+  ![srvnp](../../images/srvnp.PNG)
+  selector -- identity targetport from which pod
+*ClusterIP*
+  ![srvc2](../../images/srvc2.PNG)
+  ![srvc3](../../images/srvc3.PNG)
+*LoadBalancer*
+
+# Namespaces
+kube-system --> protect k8s internal resources, no access by users
+default
+kube-public --> resources available to all users
+dev
+prod
+
+# Imperitive 祈使式 & Declarative 陈述式 Approaches
