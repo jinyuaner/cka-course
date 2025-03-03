@@ -10,6 +10,7 @@ k get pods
 k get pods -o wide
 k get pods -n namespacename  (get pods under that namespace)
 k descirbe pod podname
+kubectl edit pods redis    --> i to edit, and esc+:wq to save
 
 > Q: create a static pod named static-busybox on the controlplane node that uses the busybox image and the command sleep 1000
   k run podname --image=imagename --dry-run=client -o yaml --command -- sleep 1000
@@ -41,7 +42,10 @@ k get deploy
 k describe deploy deploymentname
 
 6. debug pods/apps
-
+k logs podname containername
+k edit pod podname     --> copy will be saved to a path
+k replace --force -f path.yml
+k get pods --watch     --> watch pods status
 
 
 **********

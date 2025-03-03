@@ -3,6 +3,7 @@
   k8s - container orchistrator, host app in form of containers
   nodes can be physic/virsual, on premise/cloud
 
+## Nodes
 (cargo)**worker nodes** : host app in form of container
   contaniners need to be compatible --> container runtime engine: *docker/rkt* --> need to be installed on nodes
   *kubelet* - listen instruction from apiserver
@@ -21,7 +22,7 @@
     Post request - kuke-apiserver - auth - update ETCD cluster
     Scheduler continuous monitor api server - if there is a pod without node assigned - check and pass to kubeket - deploy node → update etcd again
 
-Yml file
+## Yml file
   apiVersion - kubeapi version
     Pod v1
     Service v1
@@ -36,7 +37,45 @@ K8S deployment
 
 ******************************************
 
-K8s Reference Docs:
-- https://kubernetes.io/docs/concepts/architecture/
+# Docker vs. ContainerD
 
-![Kubernetes Architecture 1](../../images/k8s-arch1.PNG)
+docker (cli/api/build/volumes/auth/security)--> dockershim -- > k8s
+containerd (*nerdctl* cli) --> CRI --> k8s
+
+other container runtime --> obey OCI-open container initiative(imagespec+runtimespec) --> call CRI container runtime interface --> (*crictl* cli)deploy to k8s
+
+k8s - container orchistrator, host app in form of containers
+
+****************************
+
+# ETCD for Beginners
+key-value
+  tabular/relational db --> row and column
+  key-value store --> each individual is a document or file
+
+******************
+
+# ReplicaSets
+Replication controller
+    multi pods share requests -- load balancing/scaling
+    high availability -- control num of instances running
+    replication controller spec file ![rc2](../../images/rc2.PNG)   
+    --> kubectl create -f rc-definition.yml  kubectl get replicationconroller
+--> advanced version: **Replica Set**
+    ![rs](../../images/rs.PNG) add selector defination
+    when create pod, give it a label, so when define replica set, can use that label to know which pods need to maintain certain running instances
+    --> kubectl get replicaset
+    when update number of replicas
+        --> kubectl replace -f replicaset-definition.yml
+        --> scale commands
+
+# Deployments
+kubectl get all --> to see all deployments
+
+# Services
+connection between user and pod --> between pods - connect to external data source
+NodePort Service
+    listen to port on a node --> forward request to pod running the app through port
+    ![srvnp](../../images/srvnp.PNG)
+ClusterIP
+LoadBalancer
