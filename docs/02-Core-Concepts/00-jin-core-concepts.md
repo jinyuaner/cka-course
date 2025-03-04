@@ -71,6 +71,7 @@ Replication controller
 
 # Deployments
 kubectl get all --> to see all deployments
+***apps/v1 kind:Deployment大写***
 
 # Services
 connection between user and pod --> between pods - connect to external data source
@@ -91,3 +92,8 @@ dev
 prod
 
 # Imperitive 祈使式 & Declarative 陈述式 Approaches
+instructions steep by step --> create/edit/replace ... commands change directly without a docs
+VS. 
+declare requirements - system do instructions for us (archistration tools: ansible/puppet/chef/terraform belongs to it)  --> create file and use kubectl apply -f file.yaml 
+
+apply command will compare --> local yaml file + last applied configuration (store in live object yamal in json format) + live object yaml
